@@ -7,6 +7,7 @@ import {Component, OnInit, Input} from '@angular/core';
 })
 export class EvenComponent implements OnInit {
 
+  // Input to print the value in the template
   @Input()
   number: number;
 

@@ -7,18 +7,21 @@ import {Component, Input} from '@angular/core';
 })
 export class AppComponent {
 
-  numbersList: Array<number>;
+  // Board that stores all the numbers generated
+  board: Array<number>;
 
   constructor() {
-    this.numbersList = Array<number>();
+    this.board = Array<number>();
   }
 
+  // Public method to add new numbers to the board
   addNumber(number: number): void {
-    this.numbersList.push(number);
+    this.board.push(number);
   }
 
+  // Clean all the numbers that are currently in the board
   cleanGame(): void {
-    this.numbersList = Array<number>();
+    this.board = Array<number>();
   }
 
 }

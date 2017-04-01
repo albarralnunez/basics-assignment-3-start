@@ -1,5 +1,6 @@
 <div class="container">
   <div class="row">
+    <!-- Announcement -->
     <div class="col-xs-12">
       <h3>Bind it!</h3>
       <ol>
@@ -16,9 +17,13 @@
   </div>
 </div>
 <hr>
+<!-- Assignment -->
 <div class="content">
+  <!-- Controller -->
   <div class="row">
     <div class="col-xs-12">
+      <!-- Here all the evens emitted by the game-control component
+      are subscribed to methods of the current component -->
       <app-game-control
         (newEvent)="addNumber($event)"
         (cleanGame)="cleanGame()"
@@ -26,17 +31,23 @@
     </div>
   </div>
   <hr>
+  <!-- Where the numbers are displayed, the id of the div is used to add padding with css -->
   <div class="row" id="main-game-frame">
-    <div class="col-xs-2" *ngFor="let number of numbersList">
+    <!-- Iterate over all the numbers already generated and render it -->
+    <div class="col-xs-2" *ngFor="let number of board">
+      <!-- Here to chose what kind of component should be chosen, is use the
+      ngIf statement with angular templates for the else condition. -->
       <div *ngIf="number % 2 === 0; else isOdd">
+        <!-- The actual number of the iteration is send as an Input throw property binding -->
         <app-even
           [number]="number">
         </app-even>
       </div>
       <ng-template #isOdd>
         <div>
+          <!-- The actual number of the iteration is send as an Input throw property binding -->
           <app-odd
-            [number]="number">
+          [number]="number">
           </app-odd>
         </div>
       </ng-template>
